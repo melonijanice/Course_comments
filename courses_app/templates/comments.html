@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form action="/{{course_id}}/comment" method="post">
+        {% csrf_token %}
+        <div class="input_form">
+            <div>
+                <h2>Add a New Comment to this course</h2>
+                <label>Comment</label><textarea class="md-textarea form-control" name="course_comments"></textarea>
+                <button type="submit" name="add_comments" class="btn btn-primary btn-lg">Add</button>
+            </div>
+    </form>
+    <h3>Users Comments:</h3>
+    {% for comment in all_comments %}
+    <p>{{comment.course_comment}}</p>
+    {% endfor %}
+</body>
+
+</html>
